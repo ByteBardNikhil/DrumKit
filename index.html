@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Drum Kit</title>
+
+    <style>
+      body {
+        background-color: #f7f7f7;
+        text-align: center;
+        font-family: "Arvo", serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        color: #333;
+        font-size: 3rem;
+        margin-top: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .set {
+        display: flex;
+        justify-content: center;
+        margin-top: 4rem;
+      }
+
+      .drum {
+        border: none;
+        background-color: #ff6b6b;
+        color: #fff;
+        padding: 2rem;
+        font-size: 2rem;
+        margin: 0 0.5rem;
+        cursor: pointer;
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      .drum:hover {
+        background-color: #ff4136;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1 id="title">Drum Kit</h1>
+    <div class="set">
+      <button class="w drum">w</button>
+      <button class="a drum">a</button>
+      <button class="s drum">s</button>
+      <button class="d drum">d</button>
+      <button class="j drum">j</button>
+      <button class="k drum">k</button>
+      <button class="l drum">l</button>
+    </div>
+
+    <script>
+      const w = document.querySelector(".w");
+      const a = document.querySelector(".a");
+      const s = document.querySelector(".s");
+      const d = document.querySelector(".d");
+      const j = document.querySelector(".j");
+      const k = document.querySelector(".k");
+      const l = document.querySelector(".l");
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "w" || e.key === "W") {
+          new Audio("https://files.codingninjas.in/tom-1-28537.mp3").play();
+          growEle(w);
+        } else if (e.key === "a" || e.key === "A") {
+          new Audio("https://files.codingninjas.in/tom-2-28541.mp3").play();
+          growEle(a);
+        } else if (e.key === "s" || e.key === "S") {
+          new Audio("https://files.codingninjas.in/tom-3-28542.mp3").play();
+          growEle(s);
+        } else if (e.key === "d" || e.key === "D") {
+          new Audio("https://files.codingninjas.in/tom-4-28543.mp3").play();
+          growEle(d);
+        } else if (e.key === "j" || e.key === "J") {
+          new Audio("https://files.codingninjas.in/snare-28545.mp3").play();
+          growEle(j);
+        } else if (e.key === "k" || e.key === "K") {
+          new Audio("https://files.codingninjas.in/snare-28545.mp3").play();
+          growEle(k);
+        } else if (e.key === "l" || e.key === "L") {
+          new Audio("https://files.codingninjas.in/tom-1-28537.mp3").play();
+          growEle(l);
+        }
+      });
+      function growEle(ele) {
+        ele.style.transform = "scale(1.2)";
+        ele.style.transition = "transform 0.3s";
+        setTimeout(() => {
+          ele.style.transform = "scale(1)";
+        }, 200);
+      }
+    </script>
+  </body>
+</html>
